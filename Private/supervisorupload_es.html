@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ORACION-4 - Timebar</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="timebar_time.js"></script>
+  <script src="timebar_prayer.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+
+  <!-- Контейнер для Timebar -->
+  <div id="timebar-container"></div>
+  <script>
+    fetch("timebar.html")
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById("timebar-container").innerHTML = d;
+      })
+      .catch(err => console.error("Error de timebar.html:", err));
+  </script>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="nav-mainbuttons">
+    <a href="supervisorpanel_es.html" class="btn-3d">
+      <i class="fas fa-sign-out-alt"></i> SALIDA </a>
+</div>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Subir CSV</title>
+</head>
+<body>
+  <h2>Subir archivo CSV</h2>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="csvfile" accept=".csv" required>
+    <button type="submit">Subir</button>
+  </form>
+
+<h2><i class="fas fa-exclamation-triangle"></i> IMPORTANTE:</a>
+INSTRUCCION en Español</h2>
+  <ul>
+	<li>Solo se permiten archivos en formato <b>CSV</b>.</li>
+	<li>El archivo debe contener las columnas en el orden correcto: COUNTRY, STATE, REGION, DATE, FAJR, SUNRISE, DHUHR, ASR, MAGHRIB, ISHA, TAHAJJUD.</li>
+		 <ul><li><i class="fas fa-calendar-alt"></i>La columna DATE debe escribirse en formato DD-MM-YYYY. Ejemplo: si la fecha es 1 de junio de 2026, debe aparecer como <i class="fas fa-check"></i> <b>01-06-2026.</b></li></ul>
+		 <ul><li><i class="fas fa-clock"></i>Las horas deben escribirse en formato 24 horas. Si es 6 de la tarde Ejemplo:  <i class="fas fa-check"></i> <b>18:00.</b></li></ul>
+	<li>El nombre del archivo debe seguir el formato MM-YYYY.csv. Ejemplo: si el archivo contiene los datos de septiembre de 2026, el nombre debe ser <i class="fas fa-check"></i> <b>09-2026.csv</b></li>
+	<li>Cada archivo representa un mes completo del calendario.</li>
+  </ul>
+
+
+
+<h2><i class="fas fa-exclamation-triangle"></i> IMPORTANT:</a> 
+INSTRUCTION in English</h2>
+  <ul>
+    <li>Only files in <b>CSV</b> format are allowed.</li>
+    <li>The file must contain the columns in the correct order: COUNTRY, STATE, REGION, DATE, FAJR, SUNRISE, DHUHR, ASR, MAGHRIB, ISHA, TAHAJJUD.</li>
+      <ul>
+        <li><i class="fas fa-calendar-alt"></i>The <b>DATE</b> column must be written in the format DD-MM-YYYY. Example: if the date is June 1, 2026, it must appear as <i class="fas fa-check"></i> <b>01-06-2026</b>.</li>
+      </ul>
+      <ul>
+        <li><i class="fas fa-clock"></i>Times must be written in 24-hour format. If it is 6 PM, for example: <i class="fas fa-check"></i> <b>18:00</b>.</li>
+      </ul>
+    <li>The filename must follow the format MM-YYYY.csv. Example: if the file contains data for September 2026, the filename must be <i class="fas fa-check"></i> <b>09-2026.csv</b>.</li>
+    <li>Each file represents one full month of the schedule.</li>
+  </ul>
+
+
+
+  <!-- Контейнер для футера -->
+<div id="footer-container"></div>
+
+<!-- Подключение футера -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+</body>
+</html>

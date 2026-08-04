@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ORACION-4</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="timebar_time.js"></script>
+  <script src="timebar_prayer.js"></script>
+  <script src="calendar.js"></script>
+</head>
+<body>
+
+ <!-- Контейнер для Timebar -->
+ <div id="timebar-container"></div>
+  <script>
+    fetch("timebar.html")
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById("timebar-container").innerHTML = d;
+      })
+      .catch(err => console.error("Error de timebar.html:", err));
+  </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="nav-menu">
+  <div class="nav-buttons">
+    <a href="index_es.html" class="btn-3d"><i class="fas fa-home"></i> Inicio </a>
+    <a href="prayer_es.html" class="btn-3d"><i class="fas fa-kaaba"></i> Oraciones </a>
+    <span class="pagename"><i class="fas fa-calendar-alt"></i> Calendario </span>
+    <a href="regions_es.html" class="btn-3d"><i class="fas fa-map-marker-alt"></i> Regiones </a>
+    <a href="contact_es.html" class="btn-3d"><i class="fas fa-envelope"></i> Contacto </a>
+  </div>
+</div>
+
+
+<div class="page-content1"> Calendario Islámico
+ <div class="page-content2">(Calendario Gregoriano junto con calendario Hijri)</div>
+</div>
+
+
+<div id="calendar-header"></div>
+
+<div class="calendar-controls">
+  <!-- Григорианский выбор -->
+  <select id="month-select" onchange="jumpToDate()"></select>
+  <select id="year-select" onchange="jumpToDate()"></select>
+</div>
+<div class="calendar-controls">
+  <!-- Хиджри выбор -->
+  <select id="hijri-month-select" onchange="jumpToHijriDate()"></select>
+  <select id="hijri-year-select" onchange="jumpToHijriDate()"></select>
+</div>
+
+
+  <button onclick="prevMonth()">◀ Mes anterior</button>
+  <select id="year-select" onchange="jumpToDate()"></select>
+  <button onclick="nextMonth()">Mes siguiente ▶</button>
+</div>
+
+<div class="page-calendar">
+  <div id="calendar-header"></div>
+  <div id="calendar-container"></div>
+</div>
+
+
+<!-- Контейнер для футера -->
+<div id="footer-container"></div>
+
+<!-- Подключение футера -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

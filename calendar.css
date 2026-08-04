@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&family=Roboto+Slab:wght@400&display=swap');
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #fff; /* светлый фон */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.calendar-table th {
+  background: linear-gradient(to bottom, #2e7d32, #1b5e20);
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.calendar-table td {
+  position: relative; 
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendar-table td:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.page-content1 {
+font-size: 40px;
+color: #333;
+margin: 0;
+font-weight: bold;
+}
+.page-content2 {
+font-size: 15px;
+color: #333;
+margin: 0;
+font-weight: none;
+}
+
+/* Весь квадрат текущей даты жёлтый */
+.calendar-table td.today {
+  background: #ffeb3b !important; /* ярко-жёлтый */
+  color: #000 !important;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Если сегодня совпадает с пятницей, субботой или воскресеньем */
+.calendar-table td.friday.today,
+.calendar-table td.saturday.today,
+.calendar-table td.sunday.today {
+  background: #ffeb3b !important; /* жёлтый фон приоритетнее */
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.gregorian-date {
+  font-size: 20px;
+  color: #333;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* Цифры Хиджры зелёные */
+.hijri-date {
+  font-size: 18px !important; /* увеличенный размер */
+  color: #2e7d32 !important;  /* зелёный цвет принудительно */
+  font-family: 'Scheherazade New', serif !important;
+  font-weight: bold;
+  color: #2e7d32 !important;
+  display: flex;
+  line-height: 1;         /* общий компактный интервал */
+}
+.hijri-day {
+  font-size: 18px;
+  color: #2e7d32 !important;
+  margin: 0;                /* убираем лишние отступы */
+  line-height: 1;           /* плотный текст */
+}
+.hijri-month {
+  font-size: 16px; /* меньше */
+  margin-left: 0px; /* небольшой отступ */
+  color: #2e7d32 !important;
+  margin: 0;                /* убираем лишние отступы */
+  line-height: 1;           /* плотный текст */
+}
+.hijri-header {
+  text-align: center;
+  font-size: 18px;
+  color: #2e7d32;
+  margin: 0;
+  font-family: 'Scheherazade New', serif;
+  font-weight: bold;
+}
+.gregorian-header {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* Мексиканские праздники */
+.mexico-holiday {
+  position: relative;
+  background: transparent !important; /* убираем белый фон */
+  overflow: hidden;
+}
+.mexico-holiday::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* растягиваем на всю ячейку */
+  display: block;
+  background: url("red-star.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; /* вся звезда помещается */
+  z-index: 0;
+}
+.mexico-holiday .gregorian-date,
+.mexico-holiday .hijri-date {
+  position: relative;
+  z-index: 1; /* текст поверх звезды */
+  color: #000;
+  font-weight: bold;
+}
+
+
+.calendar-table td {
+  position: relative; /* нужно для ::before */
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* Исламские праздники */
+.islamic-holiday {
+  position: relative;
+  background: transparent !important;
+  overflow: hidden;
+}
+.islamic-holiday::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: url("Islam-Star.png") center/contain no-repeat;
+  z-index: 0;
+}
+.islamic-holiday .gregorian-date,
+.islamic-holiday .hijri-date {
+  position: relative;
+  z-index: 1;
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* Двойные выходные */
+.double-holiday {
+  position: relative;
+  background: transparent !important;
+  overflow: hidden;
+}
+.double-holiday::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: url("Doubleholiday.png") center/contain no-repeat;
+  z-index: 0;
+}
+.double-holiday .gregorian-date,
+.double-holiday .hijri-date {
+  position: relative;
+  z-index: 1;
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* Пустые ячейки (в начале и конце месяца) */
+.calendar-table td.empty {
+  background: #e0e0e0 !important; /* светло-серый */
+}
+
+/* Суббота и воскресенье — нежно-голубой */
+.calendar-table td.saturday {
+  background: #bbdefb !important;
+}
+.calendar-table td.sunday {
+  background: #90caf9 !important; /* лёгкий голубой */
+}
+
+/* Пятница — нежно-зелёный */
+.calendar-table td.friday {
+  background: #a5d6a7 !important; /* лёгкий зелёный */
+}
+
+
+/* Календарь только внутри левого блока */
+.left-index-block .calendar-table td {
+  padding: 6px;        /* уменьшаем внутренние отступы */
+  line-height: 1.2;    /* плотнее текст */
+}
+
+.left-index-block .gregorian-date {
+  font-size: 16px;     /* чуть меньше цифры */
+  line-height: 1.1;    /* убираем лишний интервал */
+  margin: 0;
+}
+
+.left-index-block .hijri-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;   /* расстояние между day и month */
+}
+
+.left-index-block .hijri-day {
+  font-size: 16px;
+  margin: 0;
+}
+
+.left-index-block .hijri-month {
+  font-size: 11px;
+  margin: 0;
+}
+
+/* Календарь на странице calendar_es.html */
+.page-calendar .calendar-table {
+  width: 50%;          /* половина ширины */
+  margin: 20px auto;   /* по центру */
+}
+
+.page-calendar .calendar-table td {
+  width: 60px;
+  height: 60px;        /* квадратные ячейки */
+  padding: 6px;
+}
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ORACION-4 - Timebar</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="timebar_time.js"></script>
+  <script src="timebar_prayer.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+
+  <!-- Контейнер для Timebar -->
+  <div id="timebar-container"></div>
+  <script>
+    fetch("timebar.html")
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById("timebar-container").innerHTML = d;
+      })
+      .catch(err => console.error("Error de timebar.html:", err));
+  </script>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="nav-mainbuttons">
+    <a href="index_es.html" class="btn-3d">
+      <i class="fas fa-home"></i> Inicio </a>
+</div>
+
+  <meta charset="UTF-8">
+  <title>Panel Supervisor</title>
+</head>
+<body>
+  <h2>Acceso Supervisor</h2>
+
+  <form action="/login" method="POST">
+	<input type="text" name="username" placeholder="Usuario:" required><br>
+	<input type="password" name="password" placeholder="Contraseña:"required><br>
+	<button type="submit">Entrar</button>
+</form>
+  
+  
+  <!-- Контейнер для футера -->
+<div id="footer-container"></div>
+
+<!-- Подключение футера -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+</body>
+</html>

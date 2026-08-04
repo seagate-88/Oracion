@@ -1,0 +1,547 @@
+.time-bar {
+  background: #228B22;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* три части: слева, центр, справа */
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  z-index: 1000;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+/*  transition: all 0.3s ease;*/
+}
+/*.time-bar.fixed {*/
+/*position: fixed;   /* закрепляем */
+/*top: 0;*/
+/*left: 0;*/
+/*z-index: 1000;*/
+/*box-shadow: 0 3px 5px rgba(0,0,0,0.2);*/
+/*}*/
+
+body {
+  margin: 0;
+  padding-top: 55px; /* отступ для TIMEBAR */
+}
+
+.date-block {
+  background: #006400;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 16px;
+  color: #ffeb3b;
+}
+
+/*Центральный блок CLOCK-BLOCK*/
+.clock-block {
+  display: flex;
+  flex-direction: column; /* label остаётся сверху */
+  align-items: center;
+  text-align: center;
+}
+
+.clock-row {
+  display: flex;
+  flex-direction: row;   /* часы + название в строку */
+  align-items: center;
+  gap: 15px;             /* отступ между часами и названием */
+}
+
+.big-clock {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+.label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #;
+  margin-bottom: 3px;
+}
+.big-clock {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/*CURENT-PRAYER BLOCK рядом с Clock-Block*/
+.current-prayer {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffeb3b; /* жёлтый для выделения */
+  text-transform: uppercase;
+}
+
+/*МОРГАНИЕ и Перекрашивание в другой цвет  ---  CURENT-PRAYER BLOCK рядом с Clock-Block*/
+.current-prayer.warning {
+  color: ;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+/*КОНЕЦ  ---  CURENT-PRAYER BLOCK рядом с Clock-Block*/
+
+
+/*---------Prayer_BLOCK---------*/
+.prayer-counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.prayer-block {
+  background: #006400;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.prayer-label {
+  font-size: 12px;
+  color: #eee;
+  font-weight: bold;
+}
+.prayer-name {
+  font-size: 18px;
+  color: #ffeb3b; /* жёлтый */
+  font-weight: bold;
+}
+.prayer-interval {
+  font-size: 12px;
+  color: #ffeb3b; /* серый */
+  margin-bottom: 6px;
+  font-style: italic;
+}
+.time-left-pb {
+  font-size: 16px;
+  color: #ffeb3b;
+}
+.сountdown-pb {
+  font-size: 12px;
+  color: #eee; /*#00ff00;  ЗЕЛЕНЫЙ*/
+}
+
+
+/*---------Tahajjud BLOCK--------*/
+.tahajjud-block {
+  background: #ffeb3b;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: none;
+  margin-right: 10px;
+  text-align: center;
+}
+.tahajjud-prayer {
+  font-size: 18px;
+  color: #228B22;
+  font-weight: bold;
+}
+.prayer-tahajjud {
+  font-size: 12px;
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.time-left-tb {
+  font-size: 16px;
+  color: #228B22;
+  font-weight: bold;
+}
+.сountdown-tb {
+  font-size: 12px;
+  color: #000000; /*#00ff00;  ЗЕЛЕНЫЙ*/
+}
+
+/*---------MAIN MENU кнопки--------*/
+.nav-mainbuttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  padding: 12px;
+  background: linear-gradient(to bottom, #2f4f4f, #1c1c1c); /* тёмно‑серо‑зелёный градиент */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+/* 3D иконцки для кнопки */
+.btn-3d i {
+  margin-right: 8px;
+}
+/* Сами кнопки */
+.btn-3d {
+  background: linear-gradient(to bottom, #3cb371, #2e8b57); /* более светлый зелёный градиент */
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 5px #1c5c3c; /* тень для 3D */
+  transition: all 0.25s ease;
+}
+/* Эффект при наведении */
+.btn-3d:hover {
+  background: linear-gradient(to bottom, #48d1cc, #3cb371); /* подсветка бирюзово‑зелёным */
+  box-shadow: 0 3px #1c5c3c;
+  transform: translateY(2px);
+  color: #ffeb3b;
+}
+/* Эффект при нажатии */
+.btn-3d:active {
+  background: linear-gradient(to bottom, #2e8b57, #1c5c3c);
+  box-shadow: 0 2px #0f3d25;
+  transform: translateY(3px);
+}
+
+
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#month-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.hijri-month {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.calendar-table th, .calendar-table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.calendar-table td {
+  border: 1px solid #333;
+}
+
+.calendar-table td.today {
+  background: #ff3b30;
+  border-radius: 50%;
+}
+
+.calendar-table td .hijri-date {
+  color: #ff4444;
+  font-size: 12px;
+  display: block;
+}
+
+.calendar-table td.holiday {
+  background: #b71c1c;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #000;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+ 
+
+ /*------------PAGES MENU-----------*/
+.nav-menu {
+  display: flex;
+  justify-content: space-between; /* текст слева, кнопки по центру */
+  align-items: center;
+  margin-top: 10px;
+  padding: 12px;
+  background: linear-gradient(to bottom, #2f4f4f, #1c1c1c);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+.pagename{
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffeb3b;
+  text-transform: uppercase;  
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(to bottom, #28a745, #218838);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 10 0px #5c7430;
+  transition: all 0.2s ease;
+  
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center; /* кнопки по центру */
+  gap: 20px;
+  flex-grow: 1; /* занимает центр */
+}
+ /*-------------Единый FOOTER-------------*/
+footer {
+  background: #228B22; /* зелёный в стиле сайта */
+  color: white;
+  text-align: center;
+  padding: 1px;
+  font-size: 14px;
+  box-shadow: 0 -3px 5px rgba(0,0,0,0.2);
+}
+
+
+ /*-------------ОСНОВНАЯ СТРАНИЦЫ index HTML-------------*/
+.index-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* вся высота экрана */
+}
+
+/* Левая часть */
+.left-index-block {
+  width: 25%; /* занимает 25% */
+  background: #006400; /* тёмно-зелёный фон */
+  color: #fff;
+  padding: 15px;
+  box-shadow: inset -2px 0 5px rgba(0,0,0,0.3);
+}
+
+/* Правая часть */
+.main-index-block {
+  width: 75%; /* занимает оставшиеся 75% */
+  background: #f9f9f9;
+  padding: 20px;
+}
+.main-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.main-table th, .main-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Основная таблица на index_es.html */
+#main-table table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+#main-table th, 
+#main-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  color: #000; /* чёрный текст */
+}
+/* Подсветка через строку */
+#main-table tr:nth-child(even) {
+  background-color: #e8f5e9;
+}
+#main-table tr:nth-child(odd) {
+  background-color: #fff; /* белый фон */
+}
+/* Заголовки таблицы */
+#main-table th {
+  color: yellow;        /* жёлтый текст */
+  font-weight: bold;    /* жирный шрифт */
+  background-color: #333; /* тёмный фон для контраста */
+}
+/* Строки текущего дня */
+#main-table tr.current-day td {
+  font-weight: bold;       /* жирный текст */
+  background-color: #FFFF45; /* фон жёлтый */
+  color: #2e7d32;             /* текст чёрный для читаемости */
+  padding: 15px;
+  font-size: 18px;
+}
+/* Подсветка строк при наведении */
+#main-table tr:hover td {
+  background-color: #FFFF45; /* фон жёлтый */
+  color: darkgreen;              /* текст чёрный для читаемости */
+}
+
+/* Чтобы заголовки не подсвечивались */
+#main-table tr:hover th {
+  background-color: #333; /* остаётся как было */
+  color: yellow;          /* остаётся жёлтым */
+}
+
+.loader {
+  border: 6px solid #f3f3f3;       /* светлый фон */
+  border-top: 6px solid #2e7d32;   /* зелёная полоска */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;               /* по центру */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.prayers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prayers-table th, .prayers-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Основная таблица на index_es.html */
+#prayers-table table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+#prayers-table th, 
+#prayers-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  color: #000; /* чёрный текст */
+}
+/* Подсветка через строку */
+#prayers-table tr:nth-child(even) {
+  background-color: #e8f5e9;
+}
+#prayers-table tr:nth-child(odd) {
+  background-color: #fff; /* белый фон */
+}
+/* Заголовки таблицы */
+#prayers-table th {
+  color: yellow;        /* жёлтый текст */
+  font-weight: bold;    /* жирный шрифт */
+  background-color: #333; /* тёмный фон для контраста */
+}
+/* Строки текущего дня */
+#prayers-table tr.current-day td {
+  font-weight: bold;       /* жирный текст */
+  background-color: #FFFF45; /* фон жёлтый */
+  color: #2e7d32;             /* текст чёрный для читаемости */
+  padding: 15px;
+  font-size: 18px;
+}
+/* Подсветка строк при наведении */
+#prayers-table tr:hover td {
+  background-color: #FFFF45; /* фон жёлтый */
+  color: darkgreen;              /* текст чёрный для читаемости */
+}
+
+
+.prayers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prayers-table th, .prayers-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Основная таблица на index_es.html */
+#prayers-table table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+#prayers-table th, 
+#prayers-table {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  color: #000; /* чёрный текст */
+}
+/* Подсветка через строку */
+#prayers-table tr:nth-child(even) {
+  background-color: #e8f5e9;
+}
+#prayers-table tr:nth-child(odd) {
+  background-color: #fff; /* белый фон */
+}
+/* Заголовки таблицы */
+#prayers-table th {
+  color: yellow;        /* жёлтый текст */
+  font-weight: bold;    /* жирный шрифт */
+  background-color: #333; /* тёмный фон для контраста */
+}
+/* Строки текущего дня */
+#prayers-table tr.current-day td {
+  font-weight: bold;       /* жирный текст */
+  background-color: #FFFF45; /* фон жёлтый */
+  color: #2e7d32;             /* текст чёрный для читаемости */
+  padding: 15px;
+  font-size: 18px;
+}
+/* Подсветка строк при наведении */
+#prayers-table tr:hover td {
+  background-color: #FFFF45; /* фон жёлтый */
+  color: darkgreen;              /* текст чёрный для читаемости */
+}
+
+/* Чтобы заголовки не подсвечивались */
+#prayers-table tr:hover th {
+  background-color: #333; /* остаётся как было */
+  color: yellow;          /* остаётся жёлтым */
+}
