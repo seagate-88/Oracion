@@ -8,6 +8,10 @@ const session = require('express-session');
 const Database = require('better-sqlite3');
 const db = new Database(path.join(__dirname, 'schedule.db'));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index_es.html'));
+});
+
 const app = express();
 
 // Сессии
