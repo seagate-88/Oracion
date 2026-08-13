@@ -5,7 +5,6 @@ const fs = require('fs');
 const multer = require('multer');
 const session = require('express-session');
 
-// ✅ Используем better-sqlite3 вместо sqlite3
 const Database = require('better-sqlite3');
 const db = new Database(path.join(__dirname, 'schedule.db'));
 
