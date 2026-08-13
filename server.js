@@ -6,7 +6,8 @@ const fs = require('fs');
 const multer = require('multer');
 
 const app = express();
-const db = new sqlite3.Database('./schedule.db');
+const Database = require('better-sqlite3');
+const db = new Database('./schedule.db');
 
 const session = require('express-session');
 app.use(session({
